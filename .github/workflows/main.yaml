@@ -26,7 +26,7 @@ jobs:
       - name: Run unit tests
         run: dotnet test
 
-        // add a new step to publish src/webAPI project under the publish directory
+      
       - name: Publish webAPI project
         run: dotnet publish src/webAPI -o publish
       
