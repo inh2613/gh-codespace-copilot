@@ -1,0 +1,46 @@
+name: Development
+
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  [push]
+
+jobs:
+  # job_name:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Step 1
+  #       run: echo "Hello, World!"
+
+  #     - name: Step 2
+  #       run: echo "This is step 2"
+
+  #     - name: Step 3
+  #       run: echo "This is step 3"
+    build-test
+      runs-on:ubuntu-latest
+      
+      steps:
+
+        - name: Setup .NET SDK
+          uses: actions/checkout@v2
+          with:
+            dotnet-version: 7.x
+          
+        - name: Restore nuget packages
+          run: dotnet restore
+
+        - name: Build solution
+          run: dotnet build
+
+        - name: Run unit tests
+          run: dotnet test
+
+          // add a new step to publish src/webAPI project under the publish directory
+        - name: Publish webAPI project
+          run: dotnet publish src/webAPI -o publish
+        
+          
