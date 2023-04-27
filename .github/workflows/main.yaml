@@ -28,6 +28,6 @@ jobs:
 
       
       - name: Publish webAPI project
-        run: dotnet publish src/webApi -o publish
+        run: dotnet publish src/WebApi -o publish
       
 
